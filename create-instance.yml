@@ -1,0 +1,38 @@
+- hosts: 35.204.152.104
+  become: yes
+  become_method: sudo
+  become_user: root
+  strategy: free 
+  gather_facts: no
+  connection: ssh
+  
+  vars:
+    download_url: "cu"
+    terraform_path: "terraform_path"
+
+  tasks:
+   - name: Remove Terraform
+     file:
+      state: absent
+      path: "{{ terraform_path }}"
+   
+   - name: Create terraform directory if it does not exist
+     ansible.builtin.file:
+      path: "{{ terraform_path }}"
+      state: directory
+      mode: '0777'
+   
+   - name: Unarchive and download terraform configuration
+     ansible.builtin.unarchive:
+      src: "{{ download_url }}"
+      dest: "{{ terraform_path }}"
+      remote_src: yes
+   
+   - name: Terraform Init
+     shell: cd {{ terraform_path }} && terraform init
+   
+   - name: Terraform Plan
+     shell: cd {{ terraform_path }} && terraform plan -out planfile
+   
+   - name: Terraform Apply
+     shell: cd {{ terraform_path }} && terraform apply "planfile"
