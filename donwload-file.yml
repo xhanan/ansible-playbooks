@@ -1,0 +1,22 @@
+- name: Download and extract file
+  hosts: all
+  become: true
+  
+  tasks:
+    - name: Install unzip
+      apt:
+        name: unzip
+        state: present
+  
+    - name: Download file
+      get_url:
+        url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScriptZip
+        dest: /terraform/myfile.zip
+  
+    - name: Extract file
+      unarchive:
+        src: /terraform/myfile.zip
+        dest: /opt/myfile
+        remote_src: yes
+        copy: no
+        extra_opts: [--strip-components=1]
