@@ -9,7 +9,7 @@
         
     - name: Download file
       get_url:
-        url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.zip
+        url: https://storage.cloud.google.com/jimmy-playbooks/compute.zip
         dest: /terraform/zipfile.zip
   
     - name: Extract file
