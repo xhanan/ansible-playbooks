@@ -7,8 +7,8 @@
       shell: cd /
 
     - name: Download file
-      shell: curl -o /terraform/file.zip https://storage.cloud.google.com/jimmy-playbooks/TerraformScriptZip
+      shell: sudo curl -o /terraform/file.zip https://storage.cloud.google.com/jimmy-playbooks/TerraformScriptZip
     
     - name: Extract file
-      shell: unzip /terraform/file.zip -d /terraform/
+      shell: sudo unzip /terraform/file.zip -d /terraform/
     
