@@ -1,8 +1,11 @@
-- name: Download and extract a file
+- name: Download and extract file
+  hosts: all
   become: true
-  shell: |
-    cd /
-    curl -o /terraform/file.zip https://storage.cloud.google.com/jimmy-playbooks/TerraformScriptZip
-    unzip /terraform/file.zip -d /terraform/
-  args:
-    executable: /bin/bash
+  
+  tasks:
+    shell: |
+      cd /
+      curl -o /terraform/file.zip https://storage.cloud.google.com/jimmy-playbooks/TerraformScriptZip
+      unzip /terraform/file.zip -d /terraform/
+    args:
+      executable: /bin/bash
