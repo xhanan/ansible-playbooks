@@ -1,3 +1,4 @@
+---
 - name: Download and extract file
   hosts: all
   become: true
@@ -5,10 +6,16 @@
   tasks:
     - name: Relocate root
       shell: cd /
-
+        
     - name: Download file
-      shell: sudo curl -o /terraform/file.zip https://storage.cloud.google.com/jimmy-playbooks/TerraformScriptZip
-    
+      get_url:
+        url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScriptZip
+        dest: /terraform/zipfile
+  
     - name: Extract file
-      shell: sudo unzip /terraform/file.zip -d /terraform/
-    
+      unarchive:
+        src: /terraform/zipfile
+        dest: /terraform/unzipedfile
+        remote_src: yes
+        copy: no
+        extra_opts: [--strip-components=1]
