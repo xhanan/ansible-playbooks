@@ -12,5 +12,5 @@
     - name: Extract file
       shell: unzip /terraform/file.zip -d /terraform/
       
-    args:
+    - args:
       executable: /bin/bash
