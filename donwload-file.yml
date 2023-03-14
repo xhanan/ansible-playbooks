@@ -3,9 +3,6 @@
   hosts: all
   
   tasks:
-    - name: Become sudo
-      shell: sudo su
-
     - name: Relocate root
       shell: cd /
         
