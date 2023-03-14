@@ -3,10 +3,14 @@
   hosts: all
   
   tasks:
+    - name: Become sudo
+      shell: sudo su
+
     - name: Relocate root
       shell: cd /
         
+    - name: Relocate root
+      shell: cd terraform
+
     - name: Download file
-      get_url:
-        url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
-        dest: /terraform
+      shell: wget https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
