@@ -7,7 +7,7 @@
       shell: cd /
         
     - name: Relocate root
-      shell: cd terraform
+      shell: cd terraform/
 
     - name: Download file
       shell: wget https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
