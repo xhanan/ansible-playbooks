@@ -9,4 +9,4 @@
     - name: Download file
       get_url:
         url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
-        dest: /terraform/
+        dest: /terraform
