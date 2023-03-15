@@ -15,6 +15,9 @@
         url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
         dest: /terraform_path/main.tf
 
+    - name: Terraform Init
+      shell: cd terraform_path/ && terraform init
+
     - name: Terraform Plan
       shell: cd terraform_path/ && terraform plan -out planfile
    
