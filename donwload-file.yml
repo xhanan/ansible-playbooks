@@ -1,11 +1,16 @@
 ---
-- name: Download a file
+- name: Download Terraform script
   hosts: all
   tasks:
-    - name: Relocate root
-      shell: cd /
-
-    - name: Download a file
+    - name: Create destination directory
+      file:
+        path: /terraform_path
+        state: directory
+        mode: 0755
+      become: true
+      
+    - name: Download Terraform script
       get_url:
-        url: "https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf"
-        dest: "/terraform_path/TerraformScript.tf"
+        url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
+        dest: /terraform_path/TerraformScript.tf
+      become: true
