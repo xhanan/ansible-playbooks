@@ -1,6 +1,6 @@
 ---
 - name: Download Terraform script
-  hosts: all
+  hosts: 35.204.152.104
   become: true
   become_method: sudo
   tasks:
