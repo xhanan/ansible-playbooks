@@ -16,7 +16,7 @@
         dest: /terraform_path/main.tf
 
     - name: Change to Terraform directory
-      ansible.builtin.command: cd /terraform_path/
+      ansible.builtin.command: cd terraform_path/
 
     - name: Run Terraform apply
       ansible.builtin.command: terraform apply -auto-approve
