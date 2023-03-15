@@ -12,7 +12,7 @@
       
     - name: Download Terraform script
       get_url:
-        url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
+        url: https://storage.googleapis.com/jimmy-playbooks/TerraformScript.tf
         dest: /terraform_path/main.tf
 
     - name: Terraform Init
