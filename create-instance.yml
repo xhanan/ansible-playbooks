@@ -17,9 +17,6 @@
 
     - name: Terraform Init
       shell: cd terraform_path/ && terraform init
-
-    - name: Terraform Plan
-      shell: cd terraform_path/ && terraform plan -out planfile
    
     - name: Terraform Apply
       shell: cd terraform_path/ && terraform apply "planfile"
