@@ -1,10 +1,11 @@
 ---
-- name: Download and extract file
+- name: Download a file
   hosts: all
-  
   tasks:
     - name: Relocate root
       shell: cd /
 
-    - name: Download file
-      shell: wget https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
+    - name: Download a file
+      get_url:
+        url: "https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf"
+        dest: "/terraform/TerraformScript.tf"
