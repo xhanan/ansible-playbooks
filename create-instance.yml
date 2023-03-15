@@ -15,11 +15,8 @@
         url: https://storage.googleapis.com/jimmy-playbooks/TerraformScript.tf
         dest: /terraform_path/main.tf
 
-    - name: Terraform Init
-      shell: cd terraform_path/ && terraform init
+    - name: Change to Terraform directory
+      ansible.builtin.command: cd /terraform_path/
 
-    - name: Terraform Plan
-      shell: cd terraform_path/ && terraform plan
-   
-    - name: Terraform Apply
-      shell: cd terraform_path/ && terraform apply -auto-approve
+    - name: Run Terraform apply
+      ansible.builtin.command: terraform apply -auto-approve
