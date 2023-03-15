@@ -3,18 +3,21 @@
   hosts: 35.204.152.104
   become: true
   become_method: sudo
-  tasks:
-    - name: Create destination directory
-      file:
-        path: /terraform_path
-        state: directory
-        mode: 0755
-      
+  tasks:      
     - name: Download Terraform script
       get_url:
         url: https://storage.googleapis.com/jimmy-playbooks/TerraformScript.tf
         dest: /terraform_path/main.tf
 
+    - name: Change to Terraform directory
+      ansible.builtin.file:
+        path: /terraform_path
+        state: directory
+        mode: 0755
+      args:
+        chdir: /terraform_path
+
     - name: Run Terraform apply
       ansible.builtin.command: terraform apply -auto-approve
-      chdir: /terraform_path/
+      args:
+        chdir: /terraform_path
