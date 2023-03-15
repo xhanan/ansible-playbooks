@@ -1,6 +1,6 @@
 ---
 - name: Download Terraform script
-  hosts: your_server_name
+  hosts: all
   become: true
   become_method: su
   tasks:
