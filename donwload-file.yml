@@ -7,10 +7,8 @@
         path: /terraform_path
         state: directory
         mode: 0755
-      become: true
       
     - name: Download Terraform script
       get_url:
         url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
         dest: /terraform_path/TerraformScript.tf
-      become: true
