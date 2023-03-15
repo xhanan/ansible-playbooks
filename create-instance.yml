@@ -6,7 +6,7 @@
   tasks:      
     - name: Download Terraform script
       get_url:
-        url: https://storage.googleapis.com/jimmy-playbooks/TerraformScript.tf
+        url: https://storage.googleapis.com/jimmy-playbooks/TerraformScript-2.tf
         dest: /terraform_path/main.tf
  
     - name: Run Terraform apply
