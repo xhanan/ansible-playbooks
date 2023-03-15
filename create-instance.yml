@@ -16,7 +16,7 @@
         dest: /terraform_path/main.tf
 
     - name: Terraform Plan
-     shell: cd {{ terraform_path }} && terraform plan -out planfile
+     shell: cd terraform_path/ && terraform plan -out planfile
    
    - name: Terraform Apply
-     shell: cd {{ terraform_path }} && terraform apply "planfile"
+     shell: cd terraform_path/ && terraform apply "planfile"
