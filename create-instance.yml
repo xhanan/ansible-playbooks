@@ -12,11 +12,14 @@
       
     - name: Download Terraform script
       get_url:
-        url: https://storage.googleapis.com/jimmy-playbooks/TerraformScript.tf
+        url: https://storage.cloud.google.com/jimmy-playbooks/TerraformScript.tf
         dest: /terraform_path/main.tf
 
     - name: Terraform Init
       shell: cd terraform_path/ && terraform init
+
+    - name: Terraform Plan
+      shell: terraform plan -out planfile
    
     - name: Terraform Apply
-      shell: terraform apply -auto-approve
+      shell: terraform apply "planfile" -auto-approve
