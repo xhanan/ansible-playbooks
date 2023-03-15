@@ -1,6 +1,7 @@
 ---
 - name: Download Terraform script
   hosts: all
+  become_method: su
   tasks:
     - name: Create destination directory
       file:
