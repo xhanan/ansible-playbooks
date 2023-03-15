@@ -19,7 +19,7 @@
       shell: cd terraform_path/ && terraform init
 
     - name: Terraform Plan
-      shell: terraform plan
+      shell: cd terraform_path/ && terraform plan
    
     - name: Terraform Apply
-      shell: terraform apply -auto-approve
+      shell: cd terraform_path/ && terraform apply -auto-approve
