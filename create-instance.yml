@@ -10,12 +10,12 @@
   
   tasks:
     - name: Remove Terraform
-     file:
+      file:
       state: absent
       path: "{{ terraform_path }}"
    
     - name: Create terraform directory if it does not exist
-     ansible.builtin.file:
+      ansible.builtin.file:
       path: "{{ terraform_path }}"
       state: directory
       mode: '0777'
@@ -23,7 +23,7 @@
     - name: Download Terraform script
       get_url:
         url: "{{ download_url }}"
-        dest: "{{ terraform_path }}/main.tf"
+        dest: {{ terraform_path }}/main.tf
  
     - name: Run Terraform apply
       ansible.builtin.command: terraform apply -auto-approve
