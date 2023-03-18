@@ -3,13 +3,18 @@
   hosts: 35.204.152.104
   become: true
   become_method: sudo
+  
+  vars:
+    download_url: "cu"
+    terraform_path: "terraform_path"
+  
   tasks:      
     - name: Download Terraform script
       get_url:
         url: {{ download_url }}
-        dest: {{ terraform_path }}
+        dest: /terraform_path/main.tf
  
     - name: Run Terraform apply
       ansible.builtin.command: terraform apply -auto-approve
       args:
-        chdir: /terraform_path
+        chdir: /terraform_path/
