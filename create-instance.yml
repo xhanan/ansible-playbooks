@@ -11,7 +11,7 @@
   tasks:      
     - name: Download Terraform script
       get_url:
-        url: {{ download_url }}
+        url: "{{ download_url }}"
         dest: /terraform_path/main.tf
  
     - name: Run Terraform apply
