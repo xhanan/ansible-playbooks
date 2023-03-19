@@ -9,6 +9,9 @@
     terraform_path: "terraform_path"
   
   tasks:
+    - name: change path
+      shell: cd /
+      
     - name: Remove Terraform
       file:
         state: absent
