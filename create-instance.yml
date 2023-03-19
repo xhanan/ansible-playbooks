@@ -23,6 +23,11 @@
         url: "{{ download_url }}"
         dest: "{{ terraform_path }}/main.tf"
  
+    - name: Run Terraform init
+      ansible.builtin.command: terraform init
+      args:
+        chdir: /terraform_path/
+
     - name: Run Terraform apply
       ansible.builtin.command: terraform apply -auto-approve
       args:
