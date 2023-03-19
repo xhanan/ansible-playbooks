@@ -14,16 +14,16 @@
    
     - name: Create terraform directory if it does not exist
       ansible.builtin.file:
-        path: "/terraform_path/1"
+        path: "{{ terraform_path }}"
         state: directory
         mode: '0777'
 
     - name: Download Terraform script
       get_url:
         url: "{{ download_url }}"
-        dest: "/terraform_path/1/main.tf"
+        dest: "{{ terraform_path }}/main.tf"
  
     - name: Run Terraform apply
       ansible.builtin.command: terraform apply -auto-approve
       args:
-        chdir: "/terraform_path/1/"
+        chdir: "{{ terraform_path }}"
