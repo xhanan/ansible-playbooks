@@ -1,6 +1,6 @@
 ---
 - name: Create instance using terraform script
-  hosts: 35.204.152.104
+  hosts: 35.234.170.161
   become: true
   become_method: sudo
   
